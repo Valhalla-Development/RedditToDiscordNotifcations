@@ -83,9 +83,15 @@ async function processWebhook(res: {
     title: string;
     link: string;
     author: string;
+    image: {
+        url?: string
+    }
+    guid: string
 }): Promise<void> {
     // Extracting text from the description field
-    const extractedText = extractTextFromDescription(res.description);
+    const extractedText = extractTextFromDescription(res);
+
+    if (!extractedText) return;
 
     // Building a Discord message embed
     const embed = new MessageBuilder()
@@ -106,21 +112,47 @@ async function processWebhook(res: {
 }
 
 /**
- * Extracts text from a description string using a regular expression.
- * The function assumes the description follows a specific HTML structure.
- * @function extractTextFromDescription
- * @param description - The description string containing HTML content.
- * @returns The extracted text, or an empty string if no match is found.
+ * Extracts text content or image links from HTML description.
+ *
+ * This function uses regular expressions to match text content or image links within an HTML structure.
+ * If text content is found, it is extracted, HTML tags are removed, and paragraphs are formatted with newlines.
+ * If no text content is found, it checks for image links and returns them.
+ *
+ * @param res - The JSON response from the RSS feed.
+ * @returns Extracted text content or image links, formatted accordingly.
  */
-function extractTextFromDescription(description: string): string {
-    // Regular expression to match the desired content within the HTML structure
-    const regex = /<div class="md"><p>(.*?)<\/p>/;
+function extractTextFromDescription(res: {
+    description: string;
+    title: string;
+    link: string;
+    author: string;
+    image: {
+        url?: string
+    }
+    guid: string
+}): string {
+    // Regular expression to match the entire div and its content
+    const mdRegex = /<div class="md">([\s\S]*?)<\/div>/;
 
-    // Attempting to find a match in the description
-    const match = description.match(regex);
+    // Attempt to find a match for text content
+    const mdMatch = res.description.match(mdRegex);
 
-    // Returning the extracted text or an empty string if no match is found
-    return match ? match[1] : '';
+    if (mdMatch) {
+        // If there is a match for text content, extract text, remove HTML tags, and handle paragraphs
+        return mdMatch[1]
+            .replace(/<p>/g, '\n\n') // Replace paragraph tags with newlines
+            .replace(/<[^>]*>/g, '') // Remove all remaining HTML tags
+            .replace(/&#39;/g, '\'') // Replace HTML entity apostrophes
+            .trim();
+    }
+
+    // If no match for text content, check for images
+    if (Object.keys(res.image).length > 0) {
+        return `[**Image**](https://www.reddit.com/gallery/${res.guid.replace(/^t\d_/, '')})`;
+    }
+
+    // If no text or images
+    return '';
 }
 
 /**
