@@ -2,6 +2,8 @@ import { MessageBuilder, Webhook } from 'minimal-discord-webhook-node';
 import RssFeedEmitter from 'rss-feed-emitter';
 import 'dotenv/config';
 
+let thumbnail: string;
+
 /**
  * Checks if the required environment variables are defined.
  * Throws an error with a list of missing variables if any are not set.
@@ -102,6 +104,8 @@ async function processWebhook(res: {
         .setDescription(extractedText)
         .setFooter(`${res.author} | ${returnFormattedDate()}`, process.env.EmbedAuthorImageUrl as string);
 
+    if (thumbnail) embed.setThumbnail(thumbnail);
+
     try {
         // Sending the embed to the Discord webhook
         await hook.send(embed);
@@ -148,6 +152,8 @@ function extractTextFromDescription(res: {
 
     // If no match for text content, check for images
     if (Object.keys(res.image).length > 0) {
+        if (res.image.url) thumbnail = res.image.url;
+
         return `[**Image**](https://www.reddit.com/gallery/${res.guid.replace(/^t\d_/, '')})`;
     }
 
