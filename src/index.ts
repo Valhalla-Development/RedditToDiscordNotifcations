@@ -104,7 +104,10 @@ async function processWebhook(res: {
         .setDescription(extractedText)
         .setFooter(`${res.author} | ${returnFormattedDate()}`, process.env.EmbedAuthorImageUrl as string);
 
-    if (thumbnail) embed.setThumbnail(thumbnail);
+    if (thumbnail) {
+        embed.setThumbnail(thumbnail);
+        thumbnail = '';
+    }
 
     try {
         // Sending the embed to the Discord webhook
