@@ -60,6 +60,11 @@ async function setupFeed(): Promise<void> {
 
         // Event listener for the 'AirReps' event triggered by the feeder
         feeder.on('AirReps', async (res) => {
+            // Check if post was published over 12 hours ago and return if so
+            if ((new Date().getTime() - new Date(res.pubDate).getTime()) / (1000 * 60 * 60) > 12) {
+                return;
+            }
+
             await processWebhook(res);
         });
 
