@@ -1,7 +1,7 @@
 {
   "name": "reddittodiscordnotifcations",
   "description": "Automate sending Reddit RSS feed updates to your Discord server",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "repository": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations.git",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
   "license": "MIT",
