@@ -107,7 +107,7 @@ async function processWebhook(res: {
         // @ts-expect-error: The creator of the package incorrectly defined this as setUrl instead of setURL in its type file
         .setURL(res.link)
         .setColor('#FF4500')
-        .setDescription(extractedText)
+        .setDescription(extractedText.join('\n'))
         .setFooter(`${res.author} | ${returnFormattedDate()}`, process.env.EmbedAuthorImageUrl as string);
 
     if (thumbnail) {
@@ -143,7 +143,16 @@ function extractTextFromDescription(res: {
         url?: string
     }
     guid: string
-}): string {
+}): string[] | null {
+    const arr: string[] = [];
+
+    // Check for images in the post
+    if (Object.keys(res.image).length > 0) {
+        if (res.image.url) thumbnail = res.image.url;
+
+        arr.push(`[**Image**](https://www.reddit.com/gallery/${res.guid.replace(/^t\d_/, '')})`);
+    }
+
     // Regular expression to match the entire div and its content
     const mdRegex = /<div class="md">([\s\S]*?)<\/div>/;
 
@@ -157,18 +166,11 @@ function extractTextFromDescription(res: {
             .replace(/<[^>]*>/g, '') // Remove all remaining HTML tags
             .trim();
 
-        return decode(str);
+        arr.push(decode(str));
     }
 
-    // If no match for text content, check for images
-    if (Object.keys(res.image).length > 0) {
-        if (res.image.url) thumbnail = res.image.url;
-
-        return `[**Image**](https://www.reddit.com/gallery/${res.guid.replace(/^t\d_/, '')})`;
-    }
-
-    // If no text or images
-    return '';
+    // Return either the array, or null
+    return arr.length ? arr : null;
 }
 
 /**
