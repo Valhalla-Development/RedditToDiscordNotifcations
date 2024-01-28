@@ -1,6 +1,7 @@
 import { MessageBuilder, Webhook } from 'minimal-discord-webhook-node';
 import RssFeedEmitter from 'rss-feed-emitter';
 import 'dotenv/config';
+import { decode } from 'html-entities';
 
 let thumbnail: string;
 
@@ -146,11 +147,12 @@ function extractTextFromDescription(res: {
 
     if (mdMatch) {
         // If there is a match for text content, extract text, remove HTML tags, and handle paragraphs
-        return mdMatch[1]
+        const str = mdMatch[1]
             .replace(/<p>/g, '\n\n') // Replace paragraph tags with newlines
             .replace(/<[^>]*>/g, '') // Remove all remaining HTML tags
-            .replace(/&#39;/g, '\'') // Replace HTML entity apostrophes
             .trim();
+
+        return decode(str);
     }
 
     // If no match for text content, check for images
