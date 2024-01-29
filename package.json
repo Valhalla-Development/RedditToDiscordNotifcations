@@ -1,6 +1,6 @@
 {
   "name": "reddittodiscordnotifcations",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Send a message to a Discord channel via webhook, when a new Reddit post is submitted.",
   "license": "MIT",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
