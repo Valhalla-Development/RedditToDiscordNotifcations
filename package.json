@@ -1,7 +1,7 @@
 {
   "name": "reddittodiscordnotifcations",
-  "version": "1.0.14",
-  "description": "Send a message to a Discord channel via webhook, when a new Reddit post is submitted.",
+  "version": "1.0.15",
+  "description": "Automate sending Reddit RSS feed updates to your Discord server",
   "license": "MIT",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
   "homepage": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations#readme",
