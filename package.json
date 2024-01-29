@@ -1,34 +1,41 @@
 {
   "name": "reddittodiscordnotifcations",
-  "description": "Automate sending Reddit RSS feed updates to your Discord server",
   "version": "1.0.13",
-  "repository": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations.git",
-  "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
+  "description": "Send a message to a Discord channel via webhook, when a new Reddit post is submitted.",
   "license": "MIT",
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "scripts": {
-    "start": "tsc && node build/index.js",
-    "audit": "npx eslint . --format table"
+  "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
+  "homepage": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations#readme",
+  "repository": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations.git",
+  "bugs": {
+    "url": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations/issues"
   },
   "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "audit": "eslint . --format codeframe",
+    "dev": "tsc-watch --onSuccess \"node ./build/index.js\"",
+    "start": "tsc && node build/Main.js"
+  },
   "dependencies": {
-    "dotenv": "^16.4.0",
+    "dotenv": "^16.4.1",
     "html-entities": "^2.4.0",
     "minimal-discord-webhook-node": "^1.0.1",
     "rss-feed-emitter": "^3.2.3",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@types/node": "^20.11.9",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "@typescript-eslint/parser": "^6.15.0",
+    "@types/node": "^20.11.10",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-formatter-table": "^7.32.1",
+    "eslint-formatter-codeframe": "^7.32.1",
     "eslint-plugin-import": "^2.29.1",
+    "tsc-watch": "^6.0.4",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "packageManager": "yarn@4.0.2"
 }
