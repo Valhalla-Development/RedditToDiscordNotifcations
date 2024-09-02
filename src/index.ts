@@ -49,8 +49,11 @@ hook.setAvatar(process.env.WebhookAvatar as string);
  * @returns A promise that resolves when the feed is successfully set up.
  */
 async function setupFeed(): Promise<void> {
-    const feeder = new RssFeedEmitter({ skipFirstLoad: true });
     try {
+        const feeder = new RssFeedEmitter({ skipFirstLoad: true });
+
+        feeder.on('error', console.error);
+
         // Adding the RSS feed configuration to the feeder
         feeder.add({
             url: process.env.RssUrl as string,
