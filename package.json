@@ -17,25 +17,26 @@
     "start": "tsc && node build/index.js"
   },
   "dependencies": {
-    "dotenv": "^16.4.1",
-    "html-entities": "^2.4.0",
+    "dotenv": "^16.4.5",
+    "html-entities": "^2.5.2",
     "minimal-discord-webhook-node": "^1.0.1",
     "rss-feed-emitter": "^3.2.3",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@types/node": "^20.11.10",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
+    "@types/eslint": "^8",
+    "@types/node": "^22.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
+    "eslint": "8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-formatter-codeframe": "^7.32.1",
     "eslint-plugin-import": "^2.29.1",
-    "tsc-watch": "^6.0.4",
-    "typescript": "^5.3.3"
+    "tsc-watch": "^6.2.0",
+    "typescript": "^5.5.4"
   },
   "engines": {
     "node": ">=18.0.0"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.4.1"
 }
