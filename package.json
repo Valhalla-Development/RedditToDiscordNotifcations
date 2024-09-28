@@ -20,11 +20,9 @@
     "dotenv": "^16.4.5",
     "html-entities": "^2.5.2",
     "minimal-discord-webhook-node": "^1.0.1",
-    "rss-feed-emitter": "^3.2.3",
-    "ts-node": "^10.9.2"
+    "rss-feed-emitter": "^3.2.3"
   },
   "devDependencies": {
-    "@types/eslint": "^8",
     "@types/node": "^22.5.2",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
     "@typescript-eslint/parser": "^8.4.0",
@@ -32,11 +30,12 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-formatter-codeframe": "^7.32.1",
     "eslint-plugin-import": "^2.29.1",
+    "ts-node": "^10.9.2",
     "tsc-watch": "^6.2.0",
     "typescript": "^5.5.4"
   },
   "engines": {
     "node": ">=18.0.0"
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@4.5.0"
 }
