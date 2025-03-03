@@ -1,3 +1,4 @@
+// @ts-expect-error no types available
 import { MessageBuilder, Webhook } from 'minimal-discord-webhook-node';
 import RssFeedEmitter from 'rss-feed-emitter';
 import 'dotenv/config';
