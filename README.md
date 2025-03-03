@@ -5,12 +5,12 @@
 
   <p>
     <a href="https://discord.gg/Q3ZhdRJ"><img src="https://img.shields.io/discord/495602800802398212.svg?colorB=5865F2&logo=discord&logoColor=white&style=for-the-badge" alt="Discord"></a>
-    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifcations/stargazers"><img src="https://img.shields.io/github/stars/Valhalla-Development/RedditToDiscordNotifcations.svg?style=for-the-badge&color=yellow" alt="Stars"></a>
-    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifcations/network/members"><img src="https://img.shields.io/github/forks/Valhalla-Development/RedditToDiscordNotifcations.svg?style=for-the-badge&color=orange" alt="Forks"></a>
-    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifcations/issues"><img src="https://img.shields.io/github/issues/Valhalla-Development/RedditToDiscordNotifcations.svg?style=for-the-badge&color=red" alt="Issues"></a>
-    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifcations/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Valhalla-Development/RedditToDiscordNotifcations.svg?style=for-the-badge&color=blue" alt="License"></a>
+    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifications/stargazers"><img src="https://img.shields.io/github/stars/Valhalla-Development/RedditToDiscordNotifications.svg?style=for-the-badge&color=yellow" alt="Stars"></a>
+    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifications/network/members"><img src="https://img.shields.io/github/forks/Valhalla-Development/RedditToDiscordNotifications.svg?style=for-the-badge&color=orange" alt="Forks"></a>
+    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifications/issues"><img src="https://img.shields.io/github/issues/Valhalla-Development/RedditToDiscordNotifications.svg?style=for-the-badge&color=red" alt="Issues"></a>
+    <a href="https://github.com/Valhalla-Development/RedditToDiscordNotifications/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Valhalla-Development/RedditToDiscordNotifications.svg?style=for-the-badge&color=blue" alt="License"></a>
     <br>
-    <a href="https://app.codacy.com/gh/Valhalla-Development/RedditToDiscordNotifcations/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://img.shields.io/codacy/grade/6ab130f673e14f3fbbcd8cceeda70210?style=for-the-badge&color=brightgreen" alt="Codacy"></a>
+    <a href="https://app.codacy.com/gh/Valhalla-Development/RedditToDiscordNotifications/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://img.shields.io/codacy/grade/6ab130f673e14f3fbbcd8cceeda70210?style=for-the-badge&color=brightgreen" alt="Codacy"></a>
     <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/Made%20with-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="Made with TypeScript"></a>
     <a href="https://bun.sh/"><img src="https://img.shields.io/badge/Powered%20by-Bun-black?style=for-the-badge&logo=bun&logoColor=white" alt="Powered by Bun"></a>
   </p>
@@ -58,8 +58,8 @@ This project provides a seamless bridge between Reddit and Discord, automaticall
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Valhalla-Development/RedditToDiscordNotifcations.git
-   cd RedditToDiscordNotifcations
+   git clone https://github.com/Valhalla-Development/RedditToDiscordNotifications.git
+   cd RedditToDiscordNotifications
    ```
 
 2. Install Bun:
@@ -118,7 +118,7 @@ This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) 
 
 💻 Crafted with ❤️ by [Valhalla-Development](https://github.com/Valhalla-Development)
 
-[🐛 Report Bug](https://github.com/Valhalla-Development/RedditToDiscordNotifcations/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=%5BBUG%5D+Short+Description) | [💡 Request Feature](https://github.com/Valhalla-Development/RedditToDiscordNotifcations/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.yml&title=%5BFeature%5D+Short+Description)
+[🐛 Report Bug](https://github.com/Valhalla-Development/RedditToDiscordNotifications/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=%5BBUG%5D+Short+Description) | [💡 Request Feature](https://github.com/Valhalla-Development/RedditToDiscordNotifications/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.yml&title=%5BFeature%5D+Short+Description)
 
 <a href="#top">🔝 Back to Top</a>
 </div>

@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "reddittodiscordnotifcations",
+      "name": "reddittodiscordnotifications",
       "dependencies": {
         "dotenv": "^16.4.5",
         "html-entities": "^2.5.2",

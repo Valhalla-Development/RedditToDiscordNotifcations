@@ -1,13 +1,13 @@
 {
-  "name": "reddittodiscordnotifcations",
+  "name": "reddittodiscordnotifications",
   "version": "1.0.21",
   "description": "Automate sending Reddit RSS feed updates to your Discord server",
   "license": "GPL-3.0-or-later",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
-  "homepage": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations#readme",
-  "repository": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations.git",
+  "homepage": "https://github.com/Valhalla-Development/RedditToDiscordNotifications#readme",
+  "repository": "https://github.com/Valhalla-Development/RedditToDiscordNotifications.git",
   "bugs": {
-    "url": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations/issues"
+    "url": "https://github.com/Valhalla-Development/RedditToDiscordNotifications/issues"
   },
   "scripts": {
     "lint": "tsc --noEmit -p tsconfig.json && biome check --files-ignore-unknown=true --diagnostic-level=error --no-errors-on-unmatched src",
