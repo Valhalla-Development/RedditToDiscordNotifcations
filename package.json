@@ -2,19 +2,19 @@
   "name": "reddittodiscordnotifcations",
   "version": "1.0.21",
   "description": "Automate sending Reddit RSS feed updates to your Discord server",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
   "homepage": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations#readme",
   "repository": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations.git",
   "bugs": {
     "url": "https://github.com/Valhalla-Development/RedditToDiscordNotifcations/issues"
   },
-  "type": "module",
-  "main": "build/index.js",
   "scripts": {
-    "audit": "eslint . --format codeframe",
-    "dev": "tsc-watch --onSuccess \"node ./build/index.js\"",
-    "start": "tsc && node build/index.js"
+    "lint": "tsc --noEmit -p tsconfig.json && biome check --files-ignore-unknown=true --diagnostic-level=error --no-errors-on-unmatched src",
+    "lint:fix": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true src",
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
@@ -23,19 +23,9 @@
     "rss-feed-emitter": "^3.2.3"
   },
   "devDependencies": {
-    "@types/node": "^22.5.2",
-    "@typescript-eslint/eslint-plugin": "^8.4.0",
-    "@typescript-eslint/parser": "^8.4.0",
-    "eslint": "8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-formatter-codeframe": "^7.32.1",
-    "eslint-plugin-import": "^2.29.1",
-    "ts-node": "^10.9.2",
-    "tsc-watch": "^6.2.0",
-    "typescript": "^5.5.4"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "packageManager": "yarn@4.5.0"
+    "@biomejs/biome": "^1.9.4",
+    "bun-types": "^1.2.4",
+    "typescript": "^5.5.4",
+    "ultracite": "^4.1.20"
+  }
 }

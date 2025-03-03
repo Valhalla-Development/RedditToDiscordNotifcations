@@ -5,8 +5,12 @@ import { decode } from 'html-entities';
 
 /** List of required environment variables */
 const requiredEnvVars = [
-    'WebhookUrl', 'WebhookUsername', 'WebhookAvatar',
-    'EmbedAuthorImageUrl', 'RssUrl', 'RssName',
+    'WebhookUrl',
+    'WebhookUsername',
+    'WebhookAvatar',
+    'EmbedAuthorImageUrl',
+    'RssUrl',
+    'RssName',
 ];
 
 /**
@@ -15,7 +19,8 @@ const requiredEnvVars = [
  */
 const checkRequiredEnvVars = () => {
     const missingVars = requiredEnvVars.filter((varName) => !process.env[varName]);
-    if (missingVars.length) throw new Error(`Missing environment variables: ${missingVars.join(', ')}`);
+    if (missingVars.length)
+        throw new Error(`Missing environment variables: ${missingVars.join(', ')}`);
 };
 
 // Check environment variables and exit if any are missing
@@ -80,14 +85,17 @@ const processWebhook = async (res: {
         .setURL(res.link)
         .setColor('#FF4500')
         .setDescription(extractedText.join('\n'))
-        .setFooter(`${res.author} | ${new Date().toLocaleString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true,
-        })}`, process.env.EmbedAuthorImageUrl!);
+        .setFooter(
+            `${res.author} | ${new Date().toLocaleString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+            })}`,
+            process.env.EmbedAuthorImageUrl!
+        );
 
     if (res.image.url) {
         embed.setThumbnail(res.image.url);
@@ -120,7 +128,14 @@ const extractTextFromDescription = (res: {
     // Extract and decode text content
     const mdMatch = res.description.match(/<div class="md">([\s\S]*?)<\/div>/);
     if (mdMatch) {
-        arr.push(decode(mdMatch[1].replace(/<p>/g, '\n\n').replace(/<[^>]*>/g, '').trim()));
+        arr.push(
+            decode(
+                mdMatch[1]
+                    .replace(/<p>/g, '\n\n')
+                    .replace(/<[^>]*>/g, '')
+                    .trim()
+            )
+        );
     }
 
     return arr.length ? arr : null;
