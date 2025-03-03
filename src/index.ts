@@ -40,9 +40,8 @@ const hook = new Webhook(process.env.WebhookUrl!)
 
 /**
  * Sets up and monitors an RSS feed.
- * @async
  */
-const setupFeed = async () => {
+const setupFeed = () => {
     try {
         const feeder = new RssFeedEmitter({ skipFirstLoad: true });
         feeder.on('error', console.error);
@@ -146,4 +145,4 @@ const extractTextFromDescription = (res: {
 };
 
 // Start the RSS feed monitoring
-await setupFeed();
+setupFeed();
