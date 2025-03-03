@@ -20,8 +20,9 @@ const requiredEnvVars = [
  */
 const checkRequiredEnvVars = () => {
     const missingVars = requiredEnvVars.filter((varName) => !process.env[varName]);
-    if (missingVars.length)
+    if (missingVars.length) {
         throw new Error(`Missing environment variables: ${missingVars.join(', ')}`);
+    }
 };
 
 // Check environment variables and exit if any are missing
@@ -53,7 +54,9 @@ const setupFeed = async () => {
 
         feeder.on('AirReps', async (res) => {
             // Ignore posts older than 12 hours
-            if ((Date.now() - new Date(res.pubDate).getTime()) / 3600000 > 12) return;
+            if ((Date.now() - new Date(res.pubDate).getTime()) / 3600000 > 12) {
+                return;
+            }
             await processWebhook(res);
         });
 
@@ -78,8 +81,9 @@ const processWebhook = async (res: {
     guid: string;
 }) => {
     const extractedText = extractTextFromDescription(res);
-    if (!extractedText) return;
-
+    if (!extractedText) {
+        return;
+    }
     const embed = new MessageBuilder()
         .setTitle(res.title)
         .setURL(res.link)
