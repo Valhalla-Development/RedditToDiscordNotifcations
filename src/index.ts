@@ -127,7 +127,7 @@ const extractTextFromDescription = (res: {
 
     // Extract and decode text content
     const mdMatch = res.description.match(/<div class="md">([\s\S]*?)<\/div>/);
-    if (mdMatch) {
+    if (mdMatch?.[1]) {
         arr.push(
             decode(
                 mdMatch[1]
