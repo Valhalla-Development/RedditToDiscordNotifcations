@@ -82,7 +82,6 @@ const processWebhook = async (res: {
 
     const embed = new MessageBuilder()
         .setTitle(res.title)
-        // @ts-expect-error: The creator of the package incorrectly defined this as setUrl instead of setURL in its type file
         .setURL(res.link)
         .setColor('#FF4500')
         .setDescription(extractedText.join('\n'))
